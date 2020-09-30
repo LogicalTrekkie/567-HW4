@@ -27,7 +27,7 @@ def git(id):
 		
 	for i in range(len(list1)):
 		ans.append("Repo "+ list1[i] +" Number of commits " +str(list2[i]))
-		#print("Repo "+ list1[i] +" Number of commits " +str(list2[i]))
-	#print (ans)
+
+	
 	return ans
 	

@@ -7,7 +7,7 @@ class TestGit(unittest.TestCase):
     # define multiple sets of tests as functions with names that begin
 	
 	def testGit1(self): 
-		self.assertEqual(git('logicaltrekkie'),['Repo cs146-example Number of commits 8' ,'Repo Repo1 Number of commits 1','Repo SSW Number of commits 8','Repo TriangleTestingHW2 Number of commits 17'],'Should show repos and amount of comits')
+		self.assertEqual(git("3"),['Repo dotfiles Number of commits 12' ,'Repo pair-box Number of commits 7'],'Should show repos and amount of comits')
 
 	def testGit2(self): 
 		self.assertEqual(git("56757hdskjhdaca6"),'User DNE','Should Fail')
