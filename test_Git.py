@@ -2,20 +2,27 @@ import unittest
 
 from hw4 import git
 
+from unittest.mock import Mock, patch
 
 class TestGit(unittest.TestCase):
-    # define multiple sets of tests as functions with names that begin
-	
-	def testGit1(self): 
-		self.assertEqual(git("3"),['Repo dotfiles Number of commits 12' ,'Repo pair-box Number of commits 7'],'Should show repos and amount of comits')
-
-	def testGit2(self): 
-		self.assertEqual(git("56757hdskjhdaca6"),'User DNE','Should Fail')
+    """Unit Test"""
+    @classmethod
+    def setUp(id):
+        id.ID = 'logicaltrekkie'
+        id.ID2 = 'INVALID_USER_ID'
 		
-	def testGit3(self): 
-		self.assertEqual(git(5),"Id not a String",'Should report not a string')
-	
-
+    @patch('requests.get')
+    def test_validuser(self, mock_get):
+        """Checks if the user is a valid user"""
+        mock_get.return_value.status_code = 200
+        self.assertEqual(mock_get.return_value.status_code, 200)
+		
+    @patch('requests.get')
+    def test_invaliduser(self, mock_get):
+        """Check if the user is not invalid. Should error"""
+        mock_get.return_value.status_code = 404
+        self.assertEqual(mock_get.return_value.status_code, 404)
+		
 if __name__ == '__main__':
     print('Running unit tests')
     unittest.main(exit=False)
